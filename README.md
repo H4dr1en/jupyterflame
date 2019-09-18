@@ -8,7 +8,7 @@
 ------------------
 The latest version of this package can currently be installed from this repo with the following command:
 ```
-pip install https://github.com/H4dr1en/jupyterflame
+pip install git+https://github.com/H4dr1en/jupyterflame.git
 ```
 Dependencies: 
 - Perl, that can be installed in a conda environnment with:
