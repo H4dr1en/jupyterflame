@@ -101,8 +101,6 @@ class FlameClass(ExecutionMagics):
             
             with open(temp_prof_pl, "w", encoding="utf-8") as f:
                 subprocess.run(["flameprof", "--format=log",  temp_prof], stdout=f)
-
-                print(["perl", "flamegraph.pl", temp_prof_pl]+flame_opts_san)
                 
             with open(temp_svg, "w") as f:
                 subprocess.run(["perl", "flamegraph.pl", temp_prof_pl]+flame_opts_san, stdout=f)
