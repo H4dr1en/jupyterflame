@@ -11,10 +11,10 @@ The latest version of this package can currently be installed from this repo wit
 pip install git+https://github.com/H4dr1en/jupyterflame.git
 ```
 Dependencies: 
-- Perl, that can be installed in a conda environnment with:
+- Perl, in order to support [flamegraph.pl](https://github.com/brendangregg/FlameGraph). Perl can be installed in a conda environnment with:
 
 ```
-conda install -c anaconda perl
+conda install perl
 ```
 - Windows users: as long as [this PR](https://github.com/baverman/flameprof/pull/5) is not merged, you will have to install [this package](https://github.com/H4dr1en/flameprof "this package") for compatibility:
 
