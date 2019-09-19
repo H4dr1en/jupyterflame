@@ -1,6 +1,7 @@
 import subprocess
 import os
 import getopt
+import warnings
 
 from tempfile import TemporaryDirectory
 from io import StringIO
@@ -103,7 +104,17 @@ class FlameClass(ExecutionMagics):
                 subprocess.run(["flameprof", "--format=log",  temp_prof], stdout=f)
                 
             with open(temp_svg, "w") as f:
-                subprocess.run(["perl", "flamegraph.pl", temp_prof_pl]+flame_opts_san, stdout=f)
+
+                path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "flamegraph.pl")
+
+                try:
+                    subprocess.run(["perl", path, temp_prof_pl]+flame_opts_san, check=True, stdout=f)
+
+                except:
+
+                    warnings.warn("Perl command failed (most likely because Perl is not installed). "+
+                                  "Switching to non-interactive fallback backend")
+                    subprocess.run(["flameprof", temp_prof], check=True, stdout=f)
                 
             return HTML(temp_svg)
         
