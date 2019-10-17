@@ -19,5 +19,6 @@ setup(name='jupyterflame',
         "Operating System :: OS Independent",
       ],
       zip_safe=False,
-      install_requires=['flameprof']
+      install_requires=['flameprof'],
+      include_package_data=True
 )
